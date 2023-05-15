@@ -1,8 +1,8 @@
-import { Text, View ,Modal,Button} from 'react-native'
+import { View ,Modal,Button} from 'react-native'
 import React from 'react'
 import styles from './styles'
 
-const CustomModal = ({isVisible,actionDelete,product,closeIt}) => {
+const CustomModal = ({isVisible,closeIt,content}) => {
   return (
       <Modal 
       visible={isVisible} 
@@ -11,18 +11,11 @@ const CustomModal = ({isVisible,actionDelete,product,closeIt}) => {
       >
         <View style={styles.modalInnerContainer}>
           <View style={styles.modal}>
-            <Text>
-              Desea eliminar el producto 
-            </Text>
-            <Text>{product.name}</Text>
-            <Button 
-            title='Confirmar'
-            onPress={()=>actionDelete()}
-            />
             <Button
             title='X'
             onPress={closeIt}
             />
+            {content}
           </View>
         </View>
       </Modal>

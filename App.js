@@ -13,6 +13,7 @@ import {
 // import CustomModal from './src/components/customModal/CustomModal';
 import LogIn from './src/components/logIn/LogIn';
 import ScrollProducts from './src/components/srcrollProducts/ScrollProducts';
+import NavigationMenu from './src/components/navigationMenu/NavigationMenu';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -22,7 +23,7 @@ export default function App() {
   // const [products,setProducts]= useState([])
   // const [prodSelect,setProdSelect] = useState({})
   // const [modalOn,setModalOn] = useState(false)
-  const [user,setUser]= useState()
+  // const [user,setUser]= useState()
 
   if(!loaded){
     return null
@@ -76,22 +77,24 @@ export default function App() {
   //   </View>
   // )
     
-  const handleLogIn = selectedUser => {
-    setUser(selectedUser)
-  }
+  // const handleLogIn = selectedUser => {
+  //   setUser(selectedUser)
+  // }
 
-  let content = <LogIn onLogIn={handleLogIn}/>
-
-  if(user){
-    content = <ScrollProducts newStyle={styles.headerFont}/>
-  }
+  // let content = <LogIn onLogIn={handleLogIn}/>
+  // if(user){
+  //   content = <ScrollProducts newStyle={styles.headerFont}/>
+  // }
   
   return (
-    <SafeAreaView 
-    style={styles.container}>
-        <View style={styles.scrollContainer}>
-          {content}
-        </View>
+    <NavigationMenu/>
+  )
+
+    // <SafeAreaView 
+    // style={styles.container}>
+    //     <View style={styles.scrollContainer}>
+    //     <ScrollProducts newStyle={styles.headerFont}/>
+    //     </View>
         {/* <View>
           <TextInput 
           style={styles.input} 
@@ -117,8 +120,8 @@ export default function App() {
         </View> */}
         {/* <StatusBar 
         style="auto" /> */}
-    </SafeAreaView>
-  );
+    // </SafeAreaView>
+    // )
 }
 
 const styles = StyleSheet.create({
